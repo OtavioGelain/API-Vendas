@@ -1,5 +1,6 @@
 //Estou herdando da classe nativa Error
 export class AppError extends Error{
+    //o 'readonly' faz com que o statusCode do erro lançado seja imutavel
     public readonly statusCode: number
 
     constructor(message: string, statusCode: number){

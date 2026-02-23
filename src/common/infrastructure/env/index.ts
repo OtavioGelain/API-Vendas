@@ -13,7 +13,8 @@ const envSchema = z.object({
 const _env = envSchema.safeParse(process.env)
 
 if(_env.success == false){
-    throw new AppError(message: 'Invalid environment variables')
+    throw new AppError('Invalid environment variables', 400)
 }
 
+//Agora eu posso usar as variaveis de ambiente nos outros aquivos so chamando elas através dessa variavel, ficando por exemplo, env.PORT
 export const env = _env.data
