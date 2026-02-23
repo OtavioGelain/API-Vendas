@@ -3,7 +3,7 @@ import { Request, Response, NextFunction } from "express";
 
 //middlewares especificos para tratamento de erro costumam receber 4 parametros
 export function errorHandler(err: Error, req: Request, res: Response, next: NextFunction): Response{
-    //Verifica se o erro/err pertence a classe nativa do Javascript 'Error' 
+    //Verifica se o erro/err pertence a classe do AppError 
     if(err instanceof AppError){
         return res.status(err.statusCode).json({error: err.message})
     }
