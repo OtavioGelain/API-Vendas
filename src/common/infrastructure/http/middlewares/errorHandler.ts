@@ -6,7 +6,7 @@ import { Request, Response, NextFunction } from "express";
 export function errorHandler(err: Error, req: Request, res: Response, next: NextFunction): Response{
     //Verifica se o erro/err pertence a classe do AppError 
     if(err instanceof AppError){
-        return res.status(err.statusCode).json({error: err.message})
+        return res.status(err.statusCode).json({stats: 'error',message: err.message})
     }
 
     console.log(err)
